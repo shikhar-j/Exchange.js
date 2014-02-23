@@ -58,10 +58,10 @@
                 <h3>Example</h3>
                 <p>Exchange.js works with data attributes (similar to interchange.js). It allows you to replace images and content depending upon which media query is valid. Just add a <strong>data-exhcange</strong> attribute to your image or element.</p>
 <div class="pre-wrapper"><pre>
-&lt;div data-exchange=&qt;[exchange/small.html, (small)], [exchange/medium.html, (medium)], [exchange/large.html, (large)]&qt;&gt;
+&lt;div data-exchange="[exchange/small.html, (small)], [exchange/medium.html, (medium)], [exchange/large.html, (large)]"&gt;
 &lt;/div&gt;
 
-&lt;img data-exchange=&qt;[images/small.jpg, (small)], [images/medium.jpg, (medium)], [images/large.jpg, (large)]&qt;&gt;
+&lt;img data-exchange="[images/small.jpg, (small)], [images/medium.jpg, (medium)], [images/large.jpg, (large)]"&gt;
 </pre></div>
                 <p>After attaching data attributes, all you have to do is initialize Exchange.js.</p>
 <div class="pre-wrapper"><pre>
@@ -75,7 +75,7 @@
 <div class="pre-wrapper"><pre>
 &lt;script&gt;
     Exchange.init({
-        target_attr : &qt;newattribute&qt;,
+        target_attr : "newattribute",
         media_queries : {
             // custom media queries here
         }
