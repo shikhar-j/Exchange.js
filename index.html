@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Exchange.js</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            .wrapper {
+                max-width: 1200px;
+                margin: auto;
+            }
+            .demo {
+                border: 1px solid #cccccc;
+                padding: 20px;
+                background: #f9f9f9;
+            }
+            img {
+                max-width: 100%;
+                margin: auto;
+            }
+            .pre-wrapper {
+                overflow: auto;
+                width: 100%;
+                background: #fcfcfc;
+            }
+            pre {
+                padding: 10px;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Exchange.js</h1>
+                <p>
+                    Author: Shikhar Jaiswal<br>
+                    Version: 0.1
+                </p>
+            </header>
+            <article>
+                <h3>Introduction</h3>
+                <p>Exchange.js allows you to load responsive content based on media queries. The project takes inspiration from Foundation's Interchange.js but eliminates several dependencies and bugs, is written is pure javascript, and adds more flexibility.</p>
+                <p>Note: Exchange.js does not support DOM reflow as of now.</p>
+
+                <p>Exchange.js does not depend on jQuery. It also saves page from sending several ajax requests by caching element state, unlike Interchange.js which reloads responsive content every time a resize event is fired. It also uses a neat trick of attaching element state and different media query dependent responsive content urls, to cached element directly. Hence no ID or other data-attributes are added to elements. This trick also makes the process of updating element faster as DOM is not traversed again. </p>
+
+                <h3>Demo</h3>
+                <p>Resize the browser window to see Exchange.js in action</p>
+                <div class="demo">
+                    <div data-exchange="[exchange/small.html, (small)], [exchange/medium.html, (medium)], [exchange/large.html, (large)]">
+                    </div>
+                    <hr>
+                    <p><img data-exchange="[images/small.jpg, (small)], [images/medium.jpg, (medium)], [images/large.jpg, (large)]"></p>
+                </div>
+
+                <h3>Example</h3>
+                <p>Exchange.js works with data attributes (similar to interchange.js). It allows you to replace images and content depending upon which media query is valid. Just add a <strong>data-exhcange</strong> attribute to your image or element.</p>
+<div class="pre-wrapper"><pre>
+&lt;div data-exchange=&qt;[exchange/small.html, (small)], [exchange/medium.html, (medium)], [exchange/large.html, (large)]&qt;&gt;
+&lt;/div&gt;
+
+&lt;img data-exchange=&qt;[images/small.jpg, (small)], [images/medium.jpg, (medium)], [images/large.jpg, (large)]&qt;&gt;
+</pre></div>
+                <p>After attaching data attributes, all you have to do is initialize Exchange.js.</p>
+<div class="pre-wrapper"><pre>
+&lt;script&gt;
+    Exchange.init();
+&lt;/script&gt;
+</pre></div>
+                <p>As on now, you must attach your media queries to exchange.js by passing an options object, or extend 'media_queries' object in exchange.js. You can then use these keys inside the data attribute as presented in the example above.</p>
+                <p>You can also change the attribute name (by default data-exchange) to something else by passing new data attribute name to 'target_attr' inside options object.</p>
+                <p><em>The media queries (as of now) must be complete i.e. they shouldn't overlap.</em> Only one media query supplied to exchange.js should be valid at any point. Exchange.js is still young and depending upon usage, this approach may change depending upon usage.</p>
+<div class="pre-wrapper"><pre>
+&lt;script&gt;
+    Exchange.init({
+        target_attr : &qt;newattribute&qt;,
+        media_queries : {
+            // custom media queries here
+        }
+    })
+&lt;/script&gt;
+</pre></div>
+
+                <h3>License</h3>
+                <p>Free to use under MIT License</p>
+            </article>
+        </div>
+        <script src="javascript/modernizer.js"></script>
+        <script src="javascript/exchange.js"></script>
+        <script>
+            Exchange.init();
+      </script>
+    </body>
+</html>
