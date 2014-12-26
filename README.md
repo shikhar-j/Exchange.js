@@ -9,7 +9,7 @@ Exchange.js does not depend on jQuery. It also saves page from sending several a
 
 ###Example
 
-Exchange.js works with data attributes (similar to interchange.js). It allows you to replace images and content depending upon which media query is valid. Just add a **data-exhcange** attribute to your image or element.
+Exchange.js works with data attributes (similar to interchange.js). It allows you to replace images and content depending upon which media query is valid. Just add a **data-exchange** attribute to your image or element.
 
     <div data-exchange="[exchange/small.html, (small)], [exchange/medium.html, (medium)], [exchange/large.html, (large)]">
     </div>
